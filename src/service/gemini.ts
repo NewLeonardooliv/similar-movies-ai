@@ -6,12 +6,12 @@ import { getMoviePoster } from "./getMoviePoster";
 
 export default async function findMovie(filmName: string): Promise<any[]> {
     try {
-        if (!process.env.NEXT_PUBLIC_GEMINI_API_KEY) {
+        if (!process.env.GEMINI_API_KEY) {
             console.log('sem api key')
             return [];
         }
 
-        const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY;
+        const apiKey = process.env.GEMINI_API_KEY;
         const genAI = new GoogleGenerativeAI(apiKey);
 
         const model = genAI.getGenerativeModel({

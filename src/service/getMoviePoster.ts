@@ -3,14 +3,14 @@ import axios from 'axios';
 
 export const getMoviePoster = async (movieName: string) => {
   try {
-    if (!process.env.NEXT_PUBLIC_MOVIE_DB) {
+    if (!process.env.MOVIE_DB) {
       console.log('sem api key')
       return [];
     }
 
     const response = await axios.get(`https://api.themoviedb.org/3/search/movie`, {
       params: {
-        api_key: process.env.NEXT_PUBLIC_MOVIE_DB,
+        api_key: process.env.MOVIE_DB,
         query: movieName
       }
     });
